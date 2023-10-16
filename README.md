@@ -1,2 +1,2 @@
 # lu-darbi
-Šajā repo glablajas Edgara Laķa darbi
+Šajā repo glabājas Edgara Laķa darbi
