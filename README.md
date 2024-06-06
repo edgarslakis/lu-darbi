@@ -13,9 +13,11 @@ Alternatīva versija [Google Colab vidē](https://colab.research.google.com/driv
 
 1. Izveidojiet ziņojuma teksta failu ar šifrējamo ziņu vai izmainiet doto piemēra input.txt saturu.
 2. Ģenerējiet šifrēšanas un MAC atslēgas ar Python skriptu generate_keys.py.
+
 `python generate_keys.py`
  
  Rezultātā tiek izveidots key.bin fails, kurš satur abas atslēgas heksidecimālā formātā.
+
 3. Šifrēšanas skripts jāpalaiž ar četriem komandas rindas karogiem:
     - Šifrēšanai vai atšifrēšanai lietot: "encrypt" vai "decrypt"
     - Chaining veidam lietot: "cbc" vai "cfb"
