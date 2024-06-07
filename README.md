@@ -9,36 +9,36 @@ Darbs sagatavots Python 3.10.13 vidē
 
 Alternatīva versija [Google Colab vidē](https://colab.research.google.com/drive/1ZkdVpOyzT0fQ1PF_miPOyYXtQZZXlawF?usp=sharing)
 
-###Palaišanas instrukcija:
+### Palaišanas instrukcija:
 
-1. Izveidojiet ziņojuma teksta failu ar šifrējamo ziņu vai izmainiet doto piemēra input.txt saturu.
-2. Ģenerējiet šifrēšanas un MAC atslēgas ar Python skriptu generate_keys.py.
+1. Izveidojiet ziņojuma teksta failu ar šifrējamo ziņu vai jebkādu baitu saturošu failu. Doti divi piemēri input.bin un input.txt.
+2. Ģenerējiet šifrēšanas un MAC atslēgas ar Python skriptu generate_keys.py. Ar šo programmu iespējams ģenerēt arī izvēlētā izmēra baitu virkni un saglabāt to failā
 
 `python generate_keys.py`
  
- Rezultātā tiek izveidots key.bin fails, kurš satur abas atslēgas heksidecimālā formātā.
+ Rezultātā tiek izveidots key.bin fails, kurš satur abas atslēgas heksidecimālā formātā, un input.bin fails.
 
 3. Šifrēšanas skripts jāpalaiž ar četriem komandas rindas karogiem:
     - Šifrēšanai vai atšifrēšanai lietot: "encrypt" vai "decrypt"
     - Chaining veidam lietot: "cbc" vai "cfb"
     - Atslēgu fails: key.bin
-    - Izejas faila nosaukums ar .bin papildinājumu šifrēšanas komandai vai .txt atšifrēšanas komandai.
+    - Izejas un ieejas failu nosaukums (vēlams ar attiecīgu paplašinājumu, piemēram .bin vai .txt)
 
 Piemēri:
 Šifrēšana **CBC** veidā
 
-`python script.py encrypt cbc input.txt key.bin encrypted_cbc.bin`
+`python script.py encrypt cbc input.bin key.bin encrypted_cbc.bin`
 
 Atšifrēšana**CBC** veidā
 
-`python script.py decrypt cbc encrypted_cbc.bin key.bin decrypted_cbc.txt`
+`python script.py decrypt cbc encrypted_cbc.bin key.bin decrypted_cbc_file.bin`
 
 Šifrēšana **CFB** veidā
 
-`python script.py encrypt cfb input.txt key.bin encrypted_cfb.bin`
+`python script.py encrypt cfb input.bin key.bin encrypted_cfb.bin`
 
 Atšifrēšana **CFB**  veidā
 
-`python script.py decrypt cfb encrypted_cfb.bin key.bin decrypted_cfb.txt`
+`python script.py decrypt cfb encrypted_cfb.bin key.bin decrypted_cfb_file.bin`
 
 

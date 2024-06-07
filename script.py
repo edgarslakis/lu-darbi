@@ -35,13 +35,12 @@ def encrypt_text_cfb(plain_text, key, mac_key):
     # ģenerē inicializēšanas vektoru viena bloka garumā (16 baiti)
     iv = get_random_bytes(block_size)
     # Papildina (pad) tekstu tā, lai tas būtu pilnā AES 16 baitu bloka garumā
-    padded_text = plain_text.encode()
     cipher_text = b''
 
     # Šifrēšana pa blokiem. Sāk ar iv bloku
     previous_block = iv
-    for i in range(0, len(padded_text), block_size):
-        current_block = padded_text[i:i + block_size]
+    for i in range(0, len(plain_text), block_size):
+        current_block = plain_text[i:i + block_size]
         # Šifrē iepriekšējo bloku
         encrypted_block = encrypt_block(previous_block, key)
         # XOR starp iepriekšējo un tekošo teksta bloku
@@ -86,7 +85,7 @@ def decrypt_text_cfb(data, key, mac_key):
         # Šifrētais bloks kļūst par "iepriekšējais bloks" nākamajam ciklam
         previous_block = current_block
 
-    return decrypted_text.decode('utf-8')
+    return decrypted_text
 
 # Teksta šifrēšana ar CBC metodi
 def encrypt_text_cbc(plain_text, key):
@@ -94,9 +93,8 @@ def encrypt_text_cbc(plain_text, key):
     # ģenerē inicializēšanas vektoru viena bloka garumā
     iv = get_random_bytes(block_size)
     # Papildina (pad) tekstu tā, lai tas būtu pilnā AES 16 baitu bloka garumā
-    padded_text = pad(plain_text.encode(), block_size)
+    padded_text = pad(plain_text, block_size)
     cipher_text = b''
-    print("Padded teksts:", padded_text)
 
     # Šifrēšana pa blokiem. Sāk ar iv bloku
     previous_block = iv
@@ -126,7 +124,7 @@ def decrypt_text_cbc(cipher_text_encoded, key):
         previous_block = current_block
 
     decrypted_text = unpad(decrypted_text)
-    return decrypted_text.decode('utf-8')
+    return decrypted_text
 
 def main():
     parser = argparse.ArgumentParser(description='Encrypt or decrypt a file using AES in CFB or CBC mode with CMAC.')
@@ -145,7 +143,7 @@ def main():
         print("MAC atslēga:", mac_key)
 
     if args.mode == 'encrypt':
-        with open(args.input_file, 'r') as f:
+        with open(args.input_file, 'rb') as f:
             plain_text = f.read()
 
         if args.chaining == 'cfb':
@@ -169,7 +167,7 @@ def main():
         else:  # CBC
             decrypted_text = decrypt_text_cbc(encrypted_data, key)
 
-        with open(args.output_file, 'w') as f:
+        with open(args.output_file, 'wb') as f:
             f.write(decrypted_text)
 
 if __name__ == '__main__':
