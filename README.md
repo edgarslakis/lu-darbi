@@ -29,7 +29,7 @@ Piemēri:
 
 `python script.py encrypt cbc input.bin key.bin encrypted_cbc.bin`
 
-Atšifrēšana**CBC** veidā
+Atšifrēšana **CBC** veidā
 
 `python script.py decrypt cbc encrypted_cbc.bin key.bin decrypted_cbc_file.bin`
 
