@@ -1,11 +1,34 @@
-# lu-darbi
-Šajā repo glabājas Edgara Laķa (el23102) darbi
+Šajā repo glabājas Edgara Laķa (el23102) darbi Python 3.10.13 vidē
+## Lietišķā Kriptogrāfija. 2. mājasdarbs - **X.509 sertifikāts un RSA**
+10.06.2024
+
+### Palaišanas instrukcija:
+
+1. Izveidojiet ziņojuma teksta failu ar šifrējamo ziņu vai jebkādu baitu saturošu failu. Doti divi piemēri input.bin un input.txt.
+2. Ģenerējiet izvēlētā izmēra baitu virkni un saglabāt to .bin failā:
+
+`python generate_keys.py`
+ 
+ Rezultātā tiek izveidots input.bin fails, kuru izmanto kā ievadi programmai 3_sifresana.py.
+
+3. Veic trīs secīgus soļus - Python programmas:
+    1. Izveido X.509 sertifikātu, balstoties uz informāciju, kura norādīta informacija.txt failā
+
+    `python 1_izveido_X_509.py`
+
+    1. Verificē X.509 saknes sertifikātu, pārbaudot, vai izdevējs un parakstītājs ir identisks, un sakrīt punliskās atslēgas. 
+
+    `python 2_verifikacija.py`
+
+    1. Faila šifrēšana un atšifrēšana ar RSA un OAEP padding metodi. Par ievadi tiek ņemts input.bin fails. 
+
+    `python 3_sifresana.py`
+
+    Rezultātā tiek izveidots šifrēts fails encrypted_message.bin, kurš tiek atšifrēts uz output.bin. Ja ieejas faila izmērs pārsniedz teorētiski pieļaujamo pēc atslēgas izmēra (šeit 2048 biti), tiek atgriezts paziņojums ar maksimālo ieejas faila izmēru. Jāņem vērā, ka SHA-256 hash aizņem 2*32 baitus un OAEP vēl 2 baitus.
 
 
 ## Lietišķā Kriptogrāfija. 1. mājasdarbs - **Block Ciphers and Chaining Modes**
 1.06.2024
-
-Darbs sagatavots Python 3.10.13 vidē
 
 Alternatīva versija [Google Colab vidē](https://colab.research.google.com/drive/1ZkdVpOyzT0fQ1PF_miPOyYXtQZZXlawF?usp=sharing)
 
@@ -27,18 +50,18 @@ Alternatīva versija [Google Colab vidē](https://colab.research.google.com/driv
 Piemēri:
 Šifrēšana **CBC** veidā
 
-`python script.py encrypt cbc input.bin key.bin encrypted_cbc.bin`
+`python AES.py encrypt cbc input.bin key.bin encrypted_cbc.bin`
 
 Atšifrēšana **CBC** veidā
 
-`python script.py decrypt cbc encrypted_cbc.bin key.bin decrypted_cbc_file.bin`
+`python AES.py decrypt cbc encrypted_cbc.bin key.bin decrypted_cbc_file.bin`
 
 Šifrēšana **CFB** veidā
 
-`python script.py encrypt cfb input.bin key.bin encrypted_cfb.bin`
+`python AES.py encrypt cfb input.bin key.bin encrypted_cfb.bin`
 
 Atšifrēšana **CFB**  veidā
 
-`python script.py decrypt cfb encrypted_cfb.bin key.bin decrypted_cfb_file.bin`
+`python AES.py decrypt cfb encrypted_cfb.bin key.bin decrypted_cfb_file.bin`
 
 

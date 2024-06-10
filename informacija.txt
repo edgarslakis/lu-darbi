@@ -1,0 +1,5 @@
+Valsts=LV
+Novads=Riga
+Pilseta=Riga
+Organizacija=LatLotto
+Vards=Edgars
