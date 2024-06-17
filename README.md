@@ -2,12 +2,12 @@
 ## Datoru tīkli II 3. mājasdarbs. Tīkla lietotne: **Uzdevumu saraksts**
 14.06.2024
 
-Uzdevumu saraksta lietotne veidota no diviem Python skriptiem - server.py un cleint.py. Tā nodrošina komunikāciju starp server un client uz 10101 porta. Client savienojas ar serveri caur "loopback" IPv4 adresi 127.0.0.1.
+Uzdevumu saraksta lietotne veidota no diviem Python skriptiem - server.py un client.py. Tā nodrošina komunikāciju starp server un client uz 10101 porta. Client savienojas ar serveri caur "loopback" IPv4 adresi 127.0.0.1.
 
 ## Palaišanas instrukcija
 1. Vispirms palaiž serveri ar `python server.py`, tad client `python client.py`. Tiek izveidots jauns TCP/IP socket ar TCP protokolu (Socket Kind - Stream)
 
-2. Ar client komandas rindas ievadi veic sekojošas darbības ar sarakstu
+2. Ar client komandas rindas ievadi var veikt sekojošas uzdevumu saraksta izmaiņas
     1. ADD pievieno uzdevumu
 
     `ADD Piezvanīt Andrim`
