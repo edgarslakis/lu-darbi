@@ -2,6 +2,7 @@
 ## Datoru tīkli II 3. mājasdarbs. Tīkla lietotne: **Uzdevumu saraksts**
 14.06.2024
 
+Video demonstrācija https://youtu.be/snRZjjf7iFU
 Uzdevumu saraksta lietotne veidota no diviem Python skriptiem - server.py un client.py. Tā nodrošina komunikāciju starp server un client uz 10101 porta. Client savienojas ar serveri caur "loopback" IPv4 adresi 127.0.0.1.
 
 ## Palaišanas instrukcija
